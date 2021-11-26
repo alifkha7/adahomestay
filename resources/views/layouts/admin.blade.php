@@ -12,6 +12,7 @@
     @stack('prepend-style')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="/style/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css" />
     @stack('addon-style')
 </head>
 
@@ -24,11 +25,17 @@
                     <img src="/images/dashboard-logo.svg" alt="" class="my-4" />
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action">
+                    <a href="{{ route('admin-dashboard') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin') ? 'active' : '' }}">
                         Dashboard
                     </a>
-                    <a href="{{ route('room') }}" class="list-group-item list-group-item-action">
+                    <a href="{{ route('room.index') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/room') ? 'active' : '' }}">
                         Rooms
+                    </a>
+                    <a href="{{ route('room-gallery.index') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/room-gallery*') ? 'active' : '' }}">
+                        Galleries
                     </a>
                     <a href="/index.html" class="list-group-item list-group-item-action">
                         Sign Out
@@ -54,8 +61,6 @@
                                         Hi, Alif
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a href="/dashboard.html" class="dropdown-item">Dashboard</a>
-                                        <a href="/dashboard-account.html" class="dropdown-item">Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a href="/" class="dropdown-item">Logout</a>
                                     </div>
@@ -72,8 +77,9 @@
 
     @stack('prepend-script')
     <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();

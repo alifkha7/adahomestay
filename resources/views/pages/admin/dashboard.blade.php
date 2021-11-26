@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.admin')
 
 @section('title')
     Dashboard
@@ -10,7 +10,7 @@
             <div class="dashboard-heading">
                 <h2 class="dashboard-title">Dashboard</h2>
                 <p class="dashboard-subtitle">
-                    Look what you have made today !
+                    ADA Homestay Administrator Panel
                 </p>
             </div>
             <div class="dashboard-content">
